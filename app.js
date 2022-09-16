@@ -16,8 +16,10 @@ const highlightMenu = () => {
   const homeMenu = document.querySelector('#home-page');
   const aboutMenu = document.querySelector('#about-page');
   const services = document.querySelector('#services-page');
+  const signup = document.querySelector('#signup');
 
   let scrollPosition = window.scrollY;
+  console.log(scrollPosition);
 
   if (window.innerWidth < 960) {
     return;
@@ -39,11 +41,20 @@ const highlightMenu = () => {
   if (scrollPosition < 2345) {
     services.classList.add('highlight');
     aboutMenu.classList.remove('highlight');
+    signup.classList.remove('highlight__btn');
+    return;
+  }
+
+  if (scrollPosition < 3000) {
+    console.log('elo');
+    signup.classList.add('highlight__btn');
+    services.classList.remove('highlight');
     return;
   }
 
   if ((element && scrollPosition < 600) || element) {
     element.classList.remove('highlight');
+    signup.classList.remove('highlight__btn');
   }
 };
 
